@@ -1,67 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>News Ticker</title>
+<title>INS News Ticker</title>
 
 <style>
 
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     background:#1b1b1b;
     font-family:Arial, Helvetica, sans-serif;
 }
 
+/* =========================
+   MAIN TICKER
+========================= */
+
 .ticker{
     position:fixed;
     bottom:0;
+    left:0;
     width:100%;
-    height:55px;
+    height:60px;
     display:flex;
     overflow:hidden;
+    background:#222;
+    border-top:2px solid #444;
 }
 
+/* =========================
+   INS LOGO
+========================= */
+
 .live{
-    background:#cc0000;
-    color:white;
-    font-weight:bold;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     width:250px;
-    font-size:20px;
+    background:linear-gradient(to bottom,#d10000,#970000);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     flex-shrink:0;
+    border-right:2px solid rgba(255,255,255,.15);
 }
+
+.live .title{
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.live .subtitle{
+    font-size:15px;
+    letter-spacing:3px;
+    opacity:.95;
+}
+
+/* =========================
+   BULLETIN
+========================= */
 
 .breaking{
     background:#111;
     color:white;
-    font-weight:bold;
+    padding:0 22px;
     display:flex;
     align-items:center;
-    padding:0 20px;
-    font-size:18px;
-    flex-shrink:0;
+    font-size:17px;
+    font-weight:bold;
+    white-space:nowrap;
+    border-right:2px solid rgba(255,255,255,.12);
 }
 
+/* =========================
+   SCROLLING NEWS
+========================= */
+
 .news{
-    background:#222;
-    color:white;
-    overflow:hidden;
     flex:1;
+    overflow:hidden;
     display:flex;
     align-items:center;
+    background:#2a2a2a;
+    color:white;
 }
 
 .news span{
     white-space:nowrap;
     display:inline-block;
     padding-left:100%;
-    animation:ticker 25s linear infinite;
+    animation:scroll 30s linear infinite;
     font-size:18px;
+    font-weight:600;
+    letter-spacing:.5px;
 }
 
-@keyframes ticker{
+@keyframes scroll{
     from{
         transform:translateX(0);
     }
@@ -78,19 +117,20 @@ body{
 
 <div class="ticker">
 
-<div class="live">
-INTERSTATE NEWS SERVICE
-</div>
+    <div class="live">
+        <div class="title">INS</div>
+        <div class="subtitle">INTERSTATE NEWS SERVICE</div>
+    </div>
 
-<div class="breaking">
-BULLETIN OF INS
-</div>
+    <div class="breaking">
+        BULLETIN
+    </div>
 
-<div class="news">
-<span>
-Court Case #001 • LIVE • STATE OF TEXAS vs. STATE OF TEXAS • DEPARTMENT OF JUSTICE, ALAMO COUNTY AREA •
-</span>
-</div>
+    <div class="news">
+        <span>
+        COURT CASE #001 • LIVE COVERAGE • STATE OF TEXAS vs. STATE OF TEXAS • ALAMO COUNTY DEPARTMENT OF JUSTICE • PROCEEDINGS NOW UNDERWAY •
+        </span>
+    </div>
 
 </div>
 
